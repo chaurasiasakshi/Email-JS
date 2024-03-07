@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        alert{
+            color: aqua;
+        }
+    </style>
+  </head>
+  <body>
+<div class="container  border mt-5 p-5 d-flex shadow-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d14409.240586565635!2d81.85136025407981!3d25.461317240666702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d25.471574999999998!2d81.8572418!4m5!1s0x399ab5584a18f999%3A0xf425ca3dd7ad56f8!2sNeta%20Chauraha%2C%20Shiv%20Nagar%2C%20Allahpur%2C%20Prayagraj%2C%20Uttar%20Pradesh%20211006!3m2!1d25.450862299999997!2d81.8685647!5e0!3m2!1sen!2sin!4v1709805710846!5m2!1sen!2sin" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="container bg-light pt-2">
+        <h1 class="text-center text-info pb-3"><u>Get in Touch</u></h1>
+
+
+     <div class="row">
+        <div class="col-md-12 mt-3 form-group">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-12 form-group mt-5 mt-md-0">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+        </div>
+        </div>
+      <div class="form-group mt-3">
+        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+      </div>
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message" id="message" required></textarea>
+      </div>
+     
+      <div class="text-center pb-5"><button type="submit" onclick="sendMail()" class="btn btn-info text-light mt-2 ">Send Message</button></div>
+     </div>
+</div>
+    <!-- Optional JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        function sendMail(){
+          (function(){
+      emailjs.init("jmBoYLFqF8ePjGMZv") //acc public key
+          })();
+      
+          var params = {
+            sendername : document.querySelector("#name").value,
+            to : document.querySelector("#email").value,
+            subject : document.querySelector("#subject").value,
+            message : document.querySelector("#message").value,
+          
+          }
+      var serviceID = "service_vhh27ug";
+      var templateID = "template_3myhv8s";
+      
+      emailjs.send(serviceID,templateID,params)
+      .then(res =>{
+
+        
+        alert( " Email send successfully" )
+      })
+      .catch();
+        }
+      </script>
+      
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
